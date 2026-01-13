@@ -1,0 +1,15 @@
+Tribut{id=11, name='Finnick Odair', district=4, status='ALIVE', skillLevel=9}
+Tribut{id=1, name='Katniss Everdeen', district=12, status='ALIVE', skillLevel=9}
+Tribut{id=13, name='Brutus', district=2, status='DEAD', skillLevel=8}
+Tribut{id=9, name='Cato', district=2, status='ALIVE', skillLevel=8}
+Tribut{id=2, name='Johanna Mason', district=7, status='ALIVE', skillLevel=8}
+Tribut{id=5, name='Thresh', district=11, status='ALIVE', skillLevel=8}
+Tribut{id=15, name='Beetee', district=3, status='ALIVE', skillLevel=7}
+Tribut{id=3, name='Foxface', district=5, status='DEAD', skillLevel=7}
+Tribut{id=8, name='Marvel', district=1, status='DEAD', skillLevel=7}
+Tribut{id=10, name='Peeta Mellark', district=12, status='ALIVE', skillLevel=7}
+Tribut{id=12, name='Annie Cresta', district=4, status='ALIVE', skillLevel=6}
+Tribut{id=4, name='Clove', district=2, status='DEAD', skillLevel=6}
+Tribut{id=7, name='Glimmer', district=1, status='DEAD', skillLevel=6}
+Tribut{id=14, name='Wiress', district=3, status='DEAD', skillLevel=6}
+Tribut{id=6, name='Rue', district=11, status='DEAD', skillLevel=5}
