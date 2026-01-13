@@ -1,29 +1,64 @@
 package org.example;
-import model.*;
+
+import model.Tribut;
+import model.Ereignis;
+import model.SponsorGeschenk;
 import org.example.HungerGamesRepository;
+import service.TributeService;
+
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         try {
             HungerGamesRepository repo = new HungerGamesRepository();
+            TributeService tributeService = new TributeService();
+            Scanner scanner = new Scanner(System.in);
 
-            // Load all data
+            // Task 1: Load data from JSON files
             List<Tribut> tributes = repo.readTributes("tributes.json");
             List<Ereignis> events = repo.readEvents("events.json");
             List<SponsorGeschenk> gifts = repo.readGifts("gifts.json");
 
-            // Required Console Output
-            System.out.println("Tributes loaded: " + tributes.size());
-            System.out.println("Events loaded: " + events.size());
-            System.out.println("Gifts loaded: " + gifts.size());
+            boolean running = true;
+            while (running) {
+                System.out.println("\n--- Hunger Games Menu ---");
+                System.out.println("1. Task 1: Show Counts and All Tributes");
+                System.out.println("2. Task 2: Filter by District and Status");
+                System.out.println("0. Exit");
+                System.out.print("Choice: ");
 
-            // Print each Tribut in one line
-            // Format: id name | D<district> | status | skill=<skillLevel>
-            for (Tribut t : tributes) {
-                System.out.println(t);
+                int choice = scanner.nextInt();
+
+                switch (choice) {
+                    case 1 -> {
+                        // Task 1 output [cite: 41, 42, 43, 44]
+                        System.out.println("Tributes loaded: " + tributes.size());
+                        System.out.println("Events loaded: " + events.size());
+                        System.out.println("Gifts loaded: " + gifts.size());
+                        for (Tribut t : tributes) {
+                            System.out.println(t); // Uses Tribut.toString() format [cite: 46]
+                        }
+                    }
+                    case 2 -> {
+                        // Task 2: Filter by District and Status [cite: 75, 76]
+                        System.out.print("Input district: ");
+                        int districtInput = scanner.nextInt();
+
+                        List<Tribut> filtered = tributeService.filterAliveByDistrict(tributes, districtInput);
+
+                        for (Tribut t : filtered) {
+                            System.out.println(t); // Same format as Task 1 [cite: 79]
+                        }
+                    }
+                    case 0 -> {
+                        running = false;
+                        System.out.println("Exiting...");
+                    }
+                    default -> System.out.println("Invalid choice. Try again.");
+                }
             }
-
         } catch (Exception e) {
             System.err.println("Error: " + e.getMessage());
         }
