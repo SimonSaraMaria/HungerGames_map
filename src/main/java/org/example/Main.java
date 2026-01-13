@@ -4,6 +4,7 @@ import model.Tribut;
 import model.Ereignis;
 import model.SponsorGeschenk;
 import org.example.HungerGamesRepository;
+import service.EventService;
 import service.TributeService;
 
 import java.io.IOException;
@@ -29,6 +30,7 @@ public class Main {
                 System.out.println("2. Task 2: Filter by District and Status");
                 System.out.println("3. Task 3: Sort tributes by skill level");
                 System.out.println("4. Task 4: Saving sorted tributes to file");
+                System.out.println("5. Task 5: Computed points for first 5 events");
                 System.out.println("0. Exit");
                 System.out.print("Choice: ");
 
@@ -71,6 +73,18 @@ public class Main {
                             System.out.println("Successfully saved sorted tributes!");
                         } catch (IOException e) {
                             System.err.println(e);
+                        }
+                    }
+
+                    case 5 -> {
+                        System.out.print("Computed points: ");
+                        EventService eventService = new EventService();
+
+                        for (int i=0; i<5 && i<events.size(); i++) {
+                            Ereignis e = events.get(i);
+                            int computedPoints = eventService.calculateComputedPoints(e);
+                            System.out.println("Event" + e.getId() + "-> rawPoints" + e.getPoints() +
+                                    "-> computedPoints = " + computedPoints);
                         }
                     }
 
