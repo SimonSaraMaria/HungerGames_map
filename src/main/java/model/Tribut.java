@@ -5,13 +5,13 @@ public class Tribut {
     private String name;
     private int district;
 
-    private String status; //JSON field "ALIVE" OR "DEAD"
+    private Status status; //JSON field "ALIVE" OR "DEAD"
 
     private int skillLevel;
 
     public Tribut() {}
 
-    public Tribut(int id, String name, int district, String status, int skillLevel) {
+    public Tribut(int id, String name, int district, Status status, int skillLevel) {
         this.id = id;
         this.name = name;
         this.district = district;
@@ -43,11 +43,11 @@ public class Tribut {
         this.district = district;
     }
 
-    public String getStatus() {
+    public Status getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(Status status) {
         this.status = status;
     }
 

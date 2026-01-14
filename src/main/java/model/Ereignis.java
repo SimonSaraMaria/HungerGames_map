@@ -4,14 +4,14 @@ public class Ereignis {
     private int id;
     private int tributeId;
 
-    private String type; //matches type in events.json
+    private EventTyp type; //matches type in events.json
 
     private int points;
     private int day;
 
     public Ereignis() {}
 
-    public Ereignis(int id, int tributeId, String type, int points, int day) {
+    public Ereignis(int id, int tributeId, EventTyp type, int points, int day) {
         this.id = id;
         this.tributeId = tributeId;
         this.type = type;
@@ -35,11 +35,11 @@ public class Ereignis {
         this.tributeId = tributeId;
     }
 
-    public String getType() {
+    public EventTyp getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(EventTyp type) {
         this.type = type;
     }
 
